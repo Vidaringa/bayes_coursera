@@ -1,6 +1,6 @@
 ---
-title: "Untitled"
-output: github_document
+title: "Bayesian statistics"
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -9,9 +9,40 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 
 # Distributions
 
-## Uniform distribution
+## Exponential distributrion
 
-Suppose X ~ Exp(3). What is the value of P(x > 1/3)?
-It's PDF is given by f(x) = $\lambda e^{-\lambda x}$ for x > 0 and zero otherwise.
-E[X] = $\frac{1}{\lambda}$
-Var[X] = $\frac{1}{\lambda^{2}}$
+Suppose X ~ Exp(3). What is the value of P(x > 1/3)?  
+It's PDF is given by f(x) = $\lambda e^{-\lambda x}$ for x > 0 and zero otherwise.  
+E[X] = $\frac{1}{\lambda}$  
+Var[X] = $\frac{1}{\lambda^{2}}$  
+
+F(x) = $\int_{0}^{x}\lambda e^{-\lambda x}  = 1 - e^{-\lambda\times x}$
+Reiknum þetta út fyrir $\lambda$ = 3 og x = 1/3. Og fáum út 0.632. Þetta er fyrir svæðið frá 0 uppí 1/3. En þar sem spurt er P(x > 1/3) þá drögum við þessa upphæð frá 1 til að fá svæðið yfir 1/3.
+
+
+## Uniform distribution
+X ~ U(0,2) og Y = U(8, 10)
+E(4X + Y) = 4E(X) + E(Y).
+E(X) = $\frac{a+b}{2}$
+
+
+## Normal distribution
+Two *independent* normal distributions.  
+X ~ N(1, $5^{2}$)  
+Y ~ N(-2, $3^{2}$)  
+
+Z = X + Y ~ N($\mu$, $\sigma^{2}$)  
+$\mu$ = 1 + (-2)
+$\sigma^{2}$ = 25 + 9 = 34
+
+
+Two *dependent* normal distribution.  
+E(X + Y) is still = E(X) + E(Y) but...
+Var(X + Y) = Var(X) + Var(Y) + 2Cov(X, Y) where Cov(X, Y) = E[(X - E[X])(Y - E[Y])]  
+
+Var(X) = E[$(X - E[X])^{2}$] = E[$X^{2}$] - $(E[X])^{2}$.  
+What is the analogous expression for the covariance of X and Y?
+
+Cov(X, Y) = E[IX - E[X])(Y - E[Y])] = E[XY] - E[XE[Y]]-E[E[X]Y] + E[E[X]E[Y]] = E[XY] - E[X]E[Y]  
+
+NOTE! E[XY] != E[X]E[Y] if X and Y are dependent.
